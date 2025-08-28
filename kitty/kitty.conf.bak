@@ -1,0 +1,14 @@
+# Font
+font_family      "Fira Code Nerd Font"
+font_size        17.0
+
+# Font Rendering for a Sharper, Thinner Look
+font_hinting     none
+macos_thicken_font 0
+
+# Your existing settings
+background_opacity 0.97
+macos_titlebar_color background
+include themes/tokyonight-moon.conf
+window_padding_width 0 20
+single_window_padding_width -1
