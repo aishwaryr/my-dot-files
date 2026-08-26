@@ -1,0 +1,50 @@
+local chain_fmt = vim.fn.stdpath("config") .. "/tools/chain-fmt"
+
+return {
+  {
+    "stevearc/conform.nvim",
+
+    opts = function(_, opts)
+      -- Define chain_fix
+      opts.formatters = opts.formatters or {}
+
+      opts.formatters.chain_fix = {
+        command = chain_fmt .. "/node_modules/.bin/eslint",
+        args = {
+          "--config",
+          chain_fmt .. "/eslint.config.mjs",
+          "--fix",
+          "$FILENAME",
+        },
+        stdin = false,
+      }
+
+      -- Force our desired JS/TS formatting pipeline
+      opts.formatters_by_ft = opts.formatters_by_ft or {}
+
+      opts.formatters_by_ft.javascript = {
+        "prettier",
+        "eslint_d",
+        "chain_fix",
+      }
+
+      opts.formatters_by_ft.javascriptreact = {
+        "prettier",
+        "eslint_d",
+        "chain_fix",
+      }
+
+      opts.formatters_by_ft.typescript = {
+        "prettier",
+        "eslint_d",
+        "chain_fix",
+      }
+
+      opts.formatters_by_ft.typescriptreact = {
+        "prettier",
+        "eslint_d",
+        "chain_fix",
+      }
+    end,
+  },
+}

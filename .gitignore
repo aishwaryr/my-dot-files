@@ -1,0 +1,32 @@
+# macOS
+.DS_Store
+
+# Vim / Neovim temporary files
+*.swp
+*.swo
+*.swn
+*~
+*.tmp
+
+# Sessions
+Session.vim
+Sessionx.vim
+
+# Logs
+*.log
+.nvimlog
+
+# Tags
+tags
+
+# IDE/editor metadata
+.idea/
+.vscode/
+
+# Environment / secrets
+.env
+.env.*
+
+# Optional machine-specific config
+lua/config/local.lua
+node_modules/
