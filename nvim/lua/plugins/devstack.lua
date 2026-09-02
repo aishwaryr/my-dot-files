@@ -6,6 +6,18 @@ return {
   ---------------------------------------------------------------------------
   {
     "nvim-treesitter/nvim-treesitter",
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "typescriptreact",
+          "javascriptreact",
+          "html",
+        },
+        callback = function()
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
+    end,
     opts = {
       ensure_installed = {
         -- Web
@@ -32,6 +44,10 @@ return {
         "gomod",
         "gosum",
         "gowork",
+      },
+
+      indent = {
+        enable = true,
       },
 
       rainbow = {
@@ -218,6 +234,14 @@ return {
     "windwp/nvim-ts-autotag",
     event = "VeryLazy",
     config = true,
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {
+      check_ts = true,
+    },
   },
 
   ---------------------------------------------------------------------------

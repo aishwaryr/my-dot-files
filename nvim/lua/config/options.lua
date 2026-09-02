@@ -9,3 +9,5 @@ vim.schedule(function()
 end)
 
 vim.opt.updatetime = 300
+
+vim.opt.clipboard = "unnamedplus"
