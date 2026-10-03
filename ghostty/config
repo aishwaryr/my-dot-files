@@ -1,0 +1,9 @@
+theme = Oxocarbon
+font-family = "JetBrains Mono Nerd Font Mono"
+font-size = 16
+window-padding-x = 12,0
+window-padding-balance = false
+copy-on-select = clipboard
+scrollbar = system
+font-feature = calt
+font-feature = liga

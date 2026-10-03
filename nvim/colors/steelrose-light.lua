@@ -4,55 +4,57 @@ if vim.fn.exists("syntax_on") == 1 then
   vim.cmd("syntax reset")
 end
 
-vim.o.background = "dark"
-vim.g.colors_name = "opencode-vercel-gray"
+vim.o.background = "light"
+vim.g.colors_name = "steelrose-light"
+vim.g.steelrose_theme = true
 
 local c = {
-  -- Surfaces
-  background = "#1A1A1A",
-  background_active = "#202020",
-  panel = "#242424",
-  selection = "#303030",
+  -- Surfaces: subtle warm ivory
+  background = "#ECEAE1",
+  background_active = "#DEDBD2",
+  panel = "#E3E0D7",
+  selection = "#D9D1DA",
 
   -- General text
-  foreground = "#EDEDED",
-  foreground_muted = "#737B86",
-  punctuation = "#808D9E",
+  foreground = "#22252B",
+  foreground_muted = "#8B9BB1",
+  punctuation = "#B45B80",
 
-  -- Syntax
-  keyword = "#F75590",
-  func = "#D8DEE8",
-  identifier = "#4DA6FF",
-  string = "#C5A3E8",
-  literal = "#E0B0FF",
-  type = "#7291B8",
+  -- Syntax: saturated, darker accents
+  keyword = "#2A2F36",
+  func = "#C01853",
+  identifier = "#1269D3",
+  string = "#008C46",
+  literal = "#7930CC",
+  type = "#4E5968",
 
-  imported_symbol = "#F75590",
+  -- Distinct from functions and components
+  imported_symbol = "#A71BC4",
 
   -- JSX / HTML
   jsx_native = "#546275",
-  jsx_component = "#FF78B7",
-  jsx_attribute = "#8EAAF2",
+  jsx_component = "#D50085",
+  jsx_attribute = "#404DBA",
 
-  -- Structured data
-  data_key = "#8FA7C7",
+  -- JSON keys: saturated magenta
+  data_key = "#C500A5",
 
   -- Diagnostics
   error = "#E5484D",
   warning = "#B28C54",
   info = "#5580A6",
-  hint = "#5A616A",
+  hint = "#7A838D",
 
   -- UI
-  border = "#454545",
-  line_number = "#454545",
-  indent = "#282828",
+  border = "#C8C8C5",
+  line_number = "#9AA1A9",
+  indent = "#D7D7D3",
 
   -- Explorer
-  explorer_file = "#D2D9E3",
+  explorer_file = "#2C3138",
   explorer_directory = "#7291B8",
   explorer_open = "#FF78B7",
-  explorer_hidden = "#5A616A",
+  explorer_hidden = "#8B939C",
   explorer_icon = "#8EAAF2",
 
   -- Version-control states
@@ -63,7 +65,7 @@ local c = {
   vcs_renamed = "#C5A3E8",
   vcs_deleted = "#E5484D",
   vcs_conflict = "#E5484D",
-  vcs_ignored = "#5A616A",
+  vcs_ignored = "#8B939C",
 }
 
 local hl = vim.api.nvim_set_hl
@@ -71,6 +73,13 @@ local hl = vim.api.nvim_set_hl
 -- =========================================================
 -- Editor
 -- =========================================================
+
+hl(0, "Cursor", {
+  fg = c.background,
+  bg = c.jsx_component,
+})
+
+vim.opt.guicursor = "n-v-c-sm:block-Cursor," .. "i-ci-ve:ver25-Cursor," .. "r-cr-o:hor20-Cursor"
 
 hl(0, "Normal", {
   fg = c.foreground,
@@ -204,6 +213,7 @@ hl(0, "@keyword", {
 
 hl(0, "@keyword.function", {
   fg = c.keyword,
+  bold = true,
 })
 
 hl(0, "@keyword.return", {
@@ -219,7 +229,9 @@ hl(0, "@operator", {
 -- =========================================================
 
 hl(0, "@function", {
-  fg = c.func,
+  -- fg = c.func,
+  fg = "#7657A6", -- distinct violet
+  bold = true,
 })
 
 hl(0, "@function.call", {

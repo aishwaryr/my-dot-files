@@ -5,7 +5,8 @@ if vim.fn.exists("syntax_on") == 1 then
 end
 
 vim.o.background = "dark"
-vim.g.colors_name = "opencode-vercel-gray"
+vim.g.colors_name = "steelrose-dark"
+vim.g.steelrose_theme = true
 
 local c = {
   -- Surfaces
@@ -17,13 +18,14 @@ local c = {
   -- General text
   foreground = "#EDEDED",
   foreground_muted = "#737B86",
-  punctuation = "#808D9E",
+  punctuation = "#D2D9E3",
 
   -- Syntax
-  keyword = "#F75590",
-  func = "#D8DEE8",
+  keyword = "#D98FB3",
+  func = "#F75590",
   identifier = "#4DA6FF",
-  string = "#C5A3E8",
+  -- string = "#C5A3E8",
+  string = "#7EE787",
   literal = "#E0B0FF",
   type = "#7291B8",
 
@@ -35,7 +37,8 @@ local c = {
   jsx_attribute = "#8EAAF2",
 
   -- Structured data
-  data_key = "#8FA7C7",
+  -- data_key = "#8FA7C7",
+  data_key = "#FF96DA",
 
   -- Diagnostics
   error = "#E5484D",
@@ -200,6 +203,7 @@ hl(0, "@comment.todo", {
 
 hl(0, "@keyword", {
   fg = c.keyword,
+  bold = true,
 })
 
 hl(0, "@keyword.function", {

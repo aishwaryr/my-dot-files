@@ -6,6 +6,8 @@ return {
   ---------------------------------------------------------------------------
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    version = false,
     init = function()
       vim.api.nvim_create_autocmd("FileType", {
         pattern = {
@@ -48,12 +50,6 @@ return {
 
       indent = {
         enable = true,
-      },
-
-      rainbow = {
-        enable = true,
-        extended_mode = true,
-        max_file_lines = 1000,
       },
     },
   },
